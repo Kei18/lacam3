@@ -1,0 +1,7 @@
+#!/bin/sh
+echo "code formatting by prettier"
+yarn beautify
+for FILE in `git diff --staged --name-only`; do
+    git add $FILE
+done
+echo "formatting done"
