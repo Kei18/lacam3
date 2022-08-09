@@ -1,0 +1,31 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - project-page
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@v1.4.4
+        with:
+          node-version: "16.x"
+
+      - uses: c-hive/gha-yarn-cache@v2
+
+      - name: parcel build
+        run: |
+          yarn
+          yarn deploy
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
