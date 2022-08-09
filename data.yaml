@@ -1,5 +1,4 @@
-title: |-
-  Priority Inheritance with Backtracking for Iterative Mulit-agent Path Finding
+title: Priority Inheritance with Backtracking for Iterative Mulit-agent Path Finding
 
 # meta-tag
 description: |-
@@ -44,7 +43,7 @@ video: https://player.vimeo.com/video/645887407
 
 slides: https://speakerdeck.com/player/e3fb481327254d2fbd3d69e921c0f967
 
-citation: |
+citation: |-
   @article{okumura2022priority,
   title = {Priority Inheritance with Backtracking for Iterative Multi-agent Path Finding},
   journal = {Artificial Intelligence},
@@ -55,7 +54,7 @@ citation: |
   author = {Keisuke Okumura and Manao Machida and Xavier Défago and Yasumasa Tamura}
   }
 
-contact: |
+contact: |-
   okumura.k [at] coord.c.titech.ac.jp
 
 copyright: Keisuke Okumura
