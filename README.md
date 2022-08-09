@@ -17,7 +17,7 @@ cd project-page
 ### 2. Change remote repo
 
 ```sh
-git remote set-url origin git@github.com:Kei18/{YOUR PROJECT}.git
+git remote set-url origin {YOUR GITHUB REPO}
 ```
 
 ### 3. Edit your project-page
