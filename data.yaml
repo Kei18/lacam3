@@ -6,7 +6,7 @@ description: |-
   PIBT algorithm solving multi-agent pathfinding iteratively
 site_name: research projects | Keisuke Okumura
 site_url: https://kei18.github.io/pibt2/
-thumbnail_url: https://kei18.github.io/pibt2/demo.gif
+thumbnail: thumbnail
 twitter: _kei18
 
 authors:

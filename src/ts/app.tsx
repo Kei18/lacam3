@@ -21,8 +21,8 @@ const App: React.SFC<{}> = () => {
             ""
           )}
           <meta property="og:title" content={data.title} />
-          {data.thumbnail_url ? (
-            <meta property="og:image" content={data.thumbnail_url} />
+          {data.thumbnail && images_png[data.thumbnail] ? (
+            <meta property="og:image" content={images_png[data.thumbnail]} />
           ) : (
             ""
           )}
@@ -50,61 +50,81 @@ const App: React.SFC<{}> = () => {
         </Helmet>
 
         <div className="container">
-          <p className="h1 text-center">{data.title}</p>
-          <div className="text-center row authors mt-3">
-            {data.authors.map((item, i) => {
-              if (item.url) {
-                return (
-                  <div key={i} className="col-sm">
-                    <a href={item.url}>{item.name}</a>
-                  </div>
-                );
-              } else {
-                return (
-                  <div key={i} className="col-sm">
-                    <span>{item.name}</span>
-                  </div>
-                );
-              }
-            })}
-          </div>
+          {data.title ? <p className="h1 text-center">{data.title}</p> : ""}
+          {data.authors ? (
+            <div className="text-center row authors mt-3">
+              {data.authors.map((item, i) => {
+                if (item.url) {
+                  return (
+                    <div key={i} className="col-sm">
+                      <a href={item.url}>{item.name}</a>
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div key={i} className="col-sm">
+                      <span>{item.name}</span>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+          ) : (
+            ""
+          )}
 
-          <div className="text-center mt-3 top-links">
-            {data.topLinks.map((item, i) => (
-              <a key={i} href={item.url} className="badge bg-primary">
-                {item.name}
-              </a>
-            ))}
-          </div>
+          {data.topLinks ? (
+            <div className="text-center mt-3 top-links">
+              {data.topLinks.map((item, i) => (
+                <a key={i} href={item.url} className="badge bg-primary">
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          ) : (
+            ""
+          )}
 
-          <div className="row mt-3">
-            {images_gif[data.headerImage] ? (
-              <img src={images_gif[data.headerImage]} className="img-fluid" />
-            ) : (
-              ""
-            )}
-            {images_png[data.headerImage] ? (
-              <img src={images_png[data.headerImage]} className="img-fluid" />
-            ) : (
-              ""
-            )}
-          </div>
+          {data.headerImage ? (
+            <div className="row mt-3">
+              {images_gif[data.headerImage] ? (
+                <img src={images_gif[data.headerImage]} className="img-fluid" />
+              ) : (
+                ""
+              )}
+              {images_png[data.headerImage] ? (
+                <img src={images_png[data.headerImage]} className="img-fluid" />
+              ) : (
+                ""
+              )}
+            </div>
+          ) : (
+            ""
+          )}
 
-          <p className="text-center mt-3 sub-links">
-            {data.subLinks.map((item, i) => (
-              <a key={i} href={item.url} className="badge bg-success">
-                {item.name}
-              </a>
-            ))}
-          </p>
+          {data.subLinks ? (
+            <p className="text-center mt-3 sub-links">
+              {data.subLinks.map((item, i) => (
+                <a key={i} href={item.url} className="badge bg-success">
+                  {item.name}
+                </a>
+              ))}
+            </p>
+          ) : (
+            ""
+          )}
 
-          <div className="mx-auto mt-5">
-            <p className="h5">Overview</p>
-            <div
-              className="text-secondary"
-              dangerouslySetInnerHTML={{ __html: data.abstract }}
-            ></div>
-          </div>
+          {data.abstract ? (
+            <div className="mx-auto mt-5">
+              <p className="h5">Overview</p>
+              <div
+                className="text-secondary"
+                dangerouslySetInnerHTML={{ __html: data.abstract }}
+              ></div>
+            </div>
+          ) : (
+            ""
+          )}
 
           {data.news ? (
             <div className="mx-auto mt-5">
@@ -188,13 +208,17 @@ const App: React.SFC<{}> = () => {
         </div>
       </main>
 
-      <footer className="footer mt-auto">
-        <div className="container pt-3">
-          <p className="text-center">
-            &copy;{new Date().getFullYear()} {data.copyright}
-          </p>
-        </div>
-      </footer>
+      {data.copyright ? (
+        <footer className="footer mt-auto">
+          <div className="container pt-3">
+            <p className="text-center">
+              &copy;{new Date().getFullYear()} {data.copyright}
+            </p>
+          </div>
+        </footer>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
