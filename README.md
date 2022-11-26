@@ -1,4 +1,4 @@
-project-page-generator
+[project-page-generator](https://github.com/Kei18/project-page-generator)
 ===
 
 Simple project-page generator for research, assuming hosted on GitHub Pages.

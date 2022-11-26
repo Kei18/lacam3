@@ -1,37 +1,44 @@
-title: Priority Inheritance with Backtracking for Iterative Mulit-agent Path Finding
+title: |
+  project page generator (title)
 
 # meta-tag
 description: |-
-  PIBT algorithm solving multi-agent pathfinding iteratively
+  demo site
 site_name: research projects | Keisuke Okumura
-site_url: https://kei18.github.io/pibt2/
+site_url: https://kei18.github.io/project-page-generator/
 thumbnail: thumbnail
 twitter: _kei18
 
 authors:
   - name: Keisuke Okumura
     url: https://kei18.github.io/
-  - name: Manao Machida
-  - name: Xavier Défago
-    url: https://www.coord.c.titech.ac.jp/m/defago/
-  - name: Yasumasa Tamura
-    url: https://y7amura.github.io/
+    affiliation: Tokyo Institute of Technology
+  - name: Alice
+    url: https://en.wikipedia.org/wiki/Alice
+    affiliation: Alice's Adventures in Wonderland
+  - name: Satoshi Nakamoto
 
 topLinks:
-  - name: jouranl paper (AIJ-22)
+  - name: paper-link (e.g., AIJ-21)
     url: https://doi.org/10.1016/j.artint.2022.103752
 
 headerImage: demo
 
 subLinks:
   - name: code
-    url: https://github.com/Kei18/pibt2
-  - name: robot implementation (toio)
-    url: https://github.com/Kei18/toio-pibt
+    url: https://github.com/Kei18/project-page-generator
+
+otherLinks:
+  - name: |
+      example-1: LaCAM
+    url: https://kei18.github.io/lacam/
+  - name: |
+      example-2: MAPPCF
+    url: https://kei18.github.io/mappcf/
 
 abstract: |
-  <p>In the Multi-Agent Path Finding (MAPF) problem, a set of agents moving on a graph must reach their own respective destinations without inter-agent collisions. In practical MAPF applications such as navigation in automated warehouses, where occasionally there are hundreds or more agents, MAPF must be solved iteratively online on a lifelong basis. Such scenarios rule out simple adaptations of offline compute-intensive optimal approaches; therefore, scalable sub-optimal algorithms are appealing for such settings. Ideal scalable algorithms are applicable to iterative scenarios and output plausible solutions in predictable computation time.</p>
-  <p>For the aforementioned purpose, in this study, a novel algorithm named Priority Inheritance with Backtracking (PIBT) is presented to solve MAPF iteratively. PIBT relies on an adaptive prioritization scheme to focus on the adjacent movements of multiple agents; hence it can be applied to several domains. We prove that, regardless of their number, all agents are guaranteed to reach their destination within a finite time when the environment is a graph such that all pairs of adjacent nodes belong to a simple cycle (e.g., biconnected). Experimental results covering various scenarios, including real robots demonstration, reveal the benefits of the proposed method. Even with hundreds of agents, PIBT yields acceptable solutions immediately and can solve large instances that other de facto MAPF approaches cannot. In addition, PIBT outperforms an existing approach on an iterative scenario of conveying packages in an automated warehouse in both runtime and solution quality.</p>
+  <p>Write your abstract here</p>
+  <p><span class="text-danger">Lorem ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 news:
   - body: |
@@ -41,7 +48,7 @@ news:
 
 video: https://player.vimeo.com/video/645887407
 
-slides: https://speakerdeck.com/player/e3fb481327254d2fbd3d69e921c0f967
+slides: https://speakerdeck.com/player/c720eb1fa04244c79127fe6ba0c03030
 
 citation: |-
   @article{okumura2022priority,

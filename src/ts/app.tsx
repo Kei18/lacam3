@@ -57,13 +57,33 @@ const App: React.SFC<{}> = () => {
                 if (item.url) {
                   return (
                     <div key={i} className="col-sm">
-                      <a href={item.url}>{item.name}</a>
+                      <a href={item.url} className="h5">{item.name}</a>
+                          {item.affiliation
+                              ? (
+                                      <small>
+                                      <br />
+                                      <span className="text-secondary">
+                                      {item.affiliation}
+                                  </span>
+                                      </small>
+                              ) : ""
+                          }
                     </div>
                   );
                 } else {
                   return (
                     <div key={i} className="col-sm">
-                      <span>{item.name}</span>
+                      <span className="h5">{item.name}</span>
+                          {item.affiliation
+                              ? (
+                                  <small>
+                                      <br />
+                                      <span className="text-secondary">
+                                      {item.affiliation}
+                                  </span>
+                                      </small>
+                              ) : ""
+                          }
                     </div>
                   );
                 }
@@ -196,6 +216,21 @@ const App: React.SFC<{}> = () => {
           ) : (
             ""
           )}
+
+      {data.otherLinks ? (
+          <div className="mx-auto mt-5">
+              <p className="h5">Other Links</p>
+              <ul>
+              {data.otherLinks.map((item, i) => (
+                  <li key={i}>
+                      <a href={item.url}>{item.name}</a>
+                      </li>
+              ))}
+          </ul>
+              </div>
+      ) : (
+          ""
+      )}
 
           {data.contact ? (
             <div className="mx-auto mt-5">
