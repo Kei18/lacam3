@@ -12,7 +12,7 @@ twitter: _kei18
 authors:
   - name: Keisuke Okumura
     url: https://kei18.github.io/
-    affiliation: Tokyo Institute of Technology
+    affiliation: Earth
   - name: Alice
     url: https://en.wikipedia.org/wiki/Alice
     affiliation: Alice's Adventures in Wonderland
@@ -27,6 +27,14 @@ headerImage: demo
 subLinks:
   - name: code
     url: https://github.com/Kei18/project-page-generator
+
+demo:
+  - image: demo
+    description: demo1
+  - image: demo
+    description: demo2
+  - image: demo
+    description: demo3
 
 otherLinks:
   - name: |
@@ -52,16 +60,16 @@ slides: https://speakerdeck.com/player/c720eb1fa04244c79127fe6ba0c03030
 
 citation: |-
   @article{okumura2022priority,
-  title = {Priority Inheritance with Backtracking for Iterative Multi-agent Path Finding},
-  journal = {Artificial Intelligence},
-  pages = {103752},
-  year = {2022},
-  issn = {0004-3702},
-  doi = {https://doi.org/10.1016/j.artint.2022.103752},
-  author = {Keisuke Okumura and Manao Machida and Xavier Défago and Yasumasa Tamura}
+    title = {Priority Inheritance with Backtracking for Iterative Multi-agent Path Finding},
+    journal = {Artificial Intelligence},
+    pages = {103752},
+    year = {2022},
+    issn = {0004-3702},
+    doi = {https://doi.org/10.1016/j.artint.2022.103752},
+    author = {Keisuke Okumura and Manao Machida and Xavier Défago and Yasumasa Tamura}
   }
 
 contact: |-
-  okumura.k [at] coord.c.titech.ac.jp
+  ko393 [at] cl.cam.ac.uk
 
 copyright: Keisuke Okumura

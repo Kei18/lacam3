@@ -57,33 +57,35 @@ const App: React.SFC<{}> = () => {
                 if (item.url) {
                   return (
                     <div key={i} className="col-sm">
-                      <a href={item.url} className="h5">{item.name}</a>
-                          {item.affiliation
-                              ? (
-                                      <small>
-                                      <br />
-                                      <span className="text-secondary">
-                                      {item.affiliation}
-                                  </span>
-                                      </small>
-                              ) : ""
-                          }
+                      <a href={item.url} className="h5">
+                        {item.name}
+                      </a>
+                      {item.affiliation ? (
+                        <small>
+                          <br />
+                          <span className="text-secondary">
+                            {item.affiliation}
+                          </span>
+                        </small>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   );
                 } else {
                   return (
                     <div key={i} className="col-sm">
                       <span className="h5">{item.name}</span>
-                          {item.affiliation
-                              ? (
-                                  <small>
-                                      <br />
-                                      <span className="text-secondary">
-                                      {item.affiliation}
-                                  </span>
-                                      </small>
-                              ) : ""
-                          }
+                      {item.affiliation ? (
+                        <small>
+                          <br />
+                          <span className="text-secondary">
+                            {item.affiliation}
+                          </span>
+                        </small>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   );
                 }
@@ -170,6 +172,31 @@ const App: React.SFC<{}> = () => {
             ""
           )}
 
+          {data.demo ? (
+            <div className="mx-auto mt-5">
+              <p className="h5">Demo</p>
+              <div className="row">
+                {data.demo.map((item, i) => {
+                  return (
+                    <div key={i} className="col-md text-center">
+                      {item.image ? (
+                        <img
+                          src={images_gif[item.image]}
+                          className="img-fluid"
+                        />
+                      ) : (
+                        ""
+                      )}
+                      {item.description ? <p>{item.description}</p> : ""}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+
           {data.video ? (
             <div className="mx-auto mt-5">
               <p className="h5">Video</p>
@@ -217,20 +244,20 @@ const App: React.SFC<{}> = () => {
             ""
           )}
 
-      {data.otherLinks ? (
-          <div className="mx-auto mt-5">
+          {data.otherLinks ? (
+            <div className="mx-auto mt-5">
               <p className="h5">Other Links</p>
               <ul>
-              {data.otherLinks.map((item, i) => (
+                {data.otherLinks.map((item, i) => (
                   <li key={i}>
-                      <a href={item.url}>{item.name}</a>
-                      </li>
-              ))}
-          </ul>
-              </div>
-      ) : (
-          ""
-      )}
+                    <a href={item.url}>{item.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            ""
+          )}
 
           {data.contact ? (
             <div className="mx-auto mt-5">
