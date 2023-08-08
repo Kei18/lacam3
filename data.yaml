@@ -1,72 +1,75 @@
 title: |
-  project page generator (title)
+  Engineering LaCAM*: Towards Real-Time, Large-Scale, and Near-Optimal Multi-Agent Pathfinding
 
 # meta-tag
 description: |-
-  demo site
+  LaCAM3 for real-time, large-scale, and near-optimal MAPF
 site_name: research projects | Keisuke Okumura
-site_url: https://kei18.github.io/project-page-generator/
-thumbnail: thumbnail
+site_url: https://kei18.github.io/lacam3/
+thumbnail: overview
 twitter: _kei18
 
 authors:
   - name: Keisuke Okumura
     url: https://kei18.github.io/
-    affiliation: Earth
-  - name: Alice
-    url: https://en.wikipedia.org/wiki/Alice
-    affiliation: Alice's Adventures in Wonderland
-  - name: Satoshi Nakamoto
+    affiliation: |
+      University of Cambridge / National Institute of Advanced Technology and Science (AIST)
 
 topLinks:
-  - name: paper-link (e.g., AIJ-21)
-    url: https://doi.org/10.1016/j.artint.2022.103752
+  - name: preprint on arXiv
+    # url: https://doi.org/10.1016/j.artint.2022.103752
 
-headerImage: demo
+headerImage: overview
 
-subLinks:
-  - name: code
-    url: https://github.com/Kei18/project-page-generator
+# subLinks:
+#   - name: |
+    # url: https://github.com/Kei18/project-page-generator
 
-demo:
-  - image: demo
-    description: demo1
-  - image: demo
-    description: demo2
-  - image: demo
-    description: demo3
+# demo:
+#   - image: demo
+#     description: demo1
+#   - image: demo
+#     description: demo2
+#   - image: demo
+#     description: demo3
 
 otherLinks:
   - name: |
-      example-1: LaCAM
+      LaCAM (AAAI-23)
     url: https://kei18.github.io/lacam/
   - name: |
-      example-2: MAPPCF
-    url: https://kei18.github.io/mappcf/
+      LaCAM* (IJCAI-23)
+    url: https://kei18.github.io/lacam2/
+  - name: |
+      PIBT (AIJ-22)
+    url: https://kei18.github.io/pibt2/
 
 abstract: |
-  <p>Write your abstract here</p>
-  <p><span class="text-danger">Lorem ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+  This paper addresses the challenges of <span class="text-danger">real-time, large-scale, and near-optimal multi-agent pathfinding (MAPF)</span> through enhancements to the recently proposed <span class="text-danger">LaCAM*</span> algorithm.
+  LaCAM* is a scalable search-based algorithm that guarantees the eventual finding of optimal solutions for cumulative transition costs.
+  While it has demonstrated remarkable planning success rates, surpassing various state-of-the-art MAPF methods, its initial solution quality is far from optimal, and its convergence speed to the optimum is slow.
+  To overcome these limitations, this paper introduces several improvement techniques, partly drawing inspiration from other MAPF methods.
+  We provide empirical evidence that the fusion of these techniques significantly improves the solution quality of LaCAM*, thus further pushing the boundaries of MAPF algorithms.
+  </p>
+  <p><em>The code will be released under a non-profit license.</em></p>
 
 news:
   - body: |
-      The paper has been accepted to Artificial Intelligence (AIJ)!
-    url: https://www.journals.elsevier.com/artificial-intelligence
-    date: Jul. 2022
+      The preprint is out!
+    # url: https://www.journals.elsevier.com/artificial-intelligence
+    date: Aug. 2023
 
-video: https://player.vimeo.com/video/645887407
+# video: https://player.vimeo.com/video/645887407
 
-slides: https://speakerdeck.com/player/c720eb1fa04244c79127fe6ba0c03030
+# slides: https://speakerdeck.com/player/c720eb1fa04244c79127fe6ba0c03030
 
 citation: |-
-  @article{okumura2022priority,
-    title = {Priority Inheritance with Backtracking for Iterative Multi-agent Path Finding},
-    journal = {Artificial Intelligence},
-    pages = {103752},
-    year = {2022},
-    issn = {0004-3702},
-    doi = {https://doi.org/10.1016/j.artint.2022.103752},
-    author = {Keisuke Okumura and Manao Machida and Xavier Défago and Yasumasa Tamura}
+  @article{okumura2023lacam3,
+    title = {Engineering LaCAM*: Towards Real-Time, Large-Scale, and Near-Optimal Multi-Agent Pathfinding},
+    journal = {arXiv preprint},
+    year = {2023},
+    author = {Keisuke Okumura}
   }
 
 contact: |-
