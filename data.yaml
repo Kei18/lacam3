@@ -17,13 +17,13 @@ authors:
 
 topLinks:
   - name: preprint on arXiv
-    # url: https://doi.org/10.1016/j.artint.2022.103752
+    url: https://arxiv.org/abs/2308.04292
 
 headerImage: overview
 
 # subLinks:
 #   - name: |
-    # url: https://github.com/Kei18/project-page-generator
+# url: https://github.com/Kei18/project-page-generator
 
 # demo:
 #   - image: demo
@@ -57,7 +57,7 @@ abstract: |
 news:
   - body: |
       The preprint is out!
-    # url: https://www.journals.elsevier.com/artificial-intelligence
+    url: https://arxiv.org/abs/2308.04292
     date: Aug. 2023
 
 # video: https://player.vimeo.com/video/645887407
@@ -66,7 +66,7 @@ news:
 
 citation: |-
   @article{okumura2023lacam3,
-    title = {Engineering LaCAM*: Towards Real-Time, Large-Scale, and Near-Optimal Multi-Agent Pathfinding},
+    title = {Engineering LaCAM$^\ast$: Towards Real-Time, Large-Scale, and Near-Optimal Multi-Agent Pathfinding},
     journal = {arXiv preprint},
     year = {2023},
     author = {Keisuke Okumura}
