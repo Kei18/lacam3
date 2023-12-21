@@ -25,13 +25,18 @@ headerImage: overview
 #   - name: |
 # url: https://github.com/Kei18/project-page-generator
 
-# demo:
-#   - image: demo
-#     description: demo1
-#   - image: demo
-#     description: demo2
-#   - image: demo
-#     description: demo3
+demo:
+  - image: demo
+    description: |
+      Comparison with previous LaCAM* (IJCAI-23) on random-32-32-20 with 409 agents and 30s timeout.
+      Their initial solutions were found in ~100ms.
+      This paper aims to obtain near-optimal solutions even with large MAPF problems within a limited time.
+      Note that LaCAM* eventually converges to optimal solutions.
+  - image: solution-quality
+    description: |
+      Solution quality improvements on sum-of-loss.
+      Each chart includes 25 instances.
+      See the paper for details.
 
 otherLinks:
   - name: |
@@ -55,6 +60,10 @@ abstract: |
   <p><em>The code will be released under a non-profit license.</em></p>
 
 news:
+  - body: |
+      The paper has been accepted to AAMAS-24!
+    url: https://www.aamas2024-conference.auckland.ac.nz/
+    date: Dec. 2023
   - body: |
       The preprint is out!
     url: https://arxiv.org/abs/2308.04292

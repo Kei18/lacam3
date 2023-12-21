@@ -174,15 +174,25 @@ const App: React.SFC<{}> = () => {
 
           {data.demo ? (
             <div className="mx-auto mt-5">
-              <p className="h5">Demo</p>
+              <p className="h5">Demo / Performance</p>
               <div className="row">
                 {data.demo.map((item, i) => {
                   return (
-                    <div key={i} className="col-md text-center">
-                      {item.image ? (
+                    <div key={i} className="col-ld text-left">
+                      {item.image && images_gif[item.image] ? (
                         <img
                           src={images_gif[item.image]}
                           className="img-fluid"
+                          width="100%"
+                        />
+                      ) : (
+                        ""
+                      )}
+                      {item.image && images_png[item.image] ? (
+                        <img
+                          src={images_png[item.image]}
+                          className="img-fluid"
+                          width="100%"
                         />
                       ) : (
                         ""
