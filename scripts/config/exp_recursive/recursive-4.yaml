@@ -1,0 +1,18 @@
+solver_name: "recursive-4"
+solver_options:
+  # common
+  - "--checkpoints-duration"
+  - "1"
+  - "--pibt-num"
+  - "1"
+  - "--random-insert-prob1"
+  - "0.001"
+  - "--random-insert-prob2"
+  - "0.0"
+  - "--no-scatter"
+  - "--no-refiner"
+  # tested parameters
+  - "--refiner-num"
+  - "4"
+  - "--recursive-rate"
+  - "1.0"

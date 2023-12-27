@@ -1,0 +1,17 @@
+solver_name: "lacam3-pibt200"
+solver_options:
+  # common
+  - "--checkpoints-duration"
+  - "1"
+  - "--pibt-num"
+  - "200"
+  - "--random-insert-prob1"
+  - "0.001"
+  - "--random-insert-prob2"
+  - "0.01"
+  - "--scatter-margin"
+  - "10"
+  - "--refiner-num"
+  - "1"
+  - "--recursive-rate"
+  - "0"

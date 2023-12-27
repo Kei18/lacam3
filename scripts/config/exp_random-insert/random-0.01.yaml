@@ -1,0 +1,15 @@
+solver_name: "random-0.01"
+solver_options:
+  # common
+  - "--checkpoints-duration"
+  - "1"
+  - "--no-multi-thread"
+  - "--no-scatter"
+  - "--no-refiner"
+  - "--pibt-num"
+  - "1"
+  # tested parameters
+  - "--random-insert-prob1"
+  - "0.001"
+  - "--random-insert-prob2"
+  - "0.01"

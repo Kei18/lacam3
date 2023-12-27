@@ -1,0 +1,12 @@
+root: ../data/exp/aamas24/10k
+num_min_agents: 10000
+num_max_agents: 10000
+num_interval_agents: 50
+time_limit_sec: 300
+time_limit_sec_force: 1000
+seed_start: 1
+seed_end: 1
+scen: scen-warehouse
+
+maps:
+  - warehouse-20-40-10-2-2

@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - 'lacam3/**'
+      - 'tests/**'
+      - 'main.cpp'
+      - '.github/**'
+
+jobs:
+  ci:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: build
+        run: cmake -B build && make -C build
+      - name: test
+        run: ctest --test-dir build

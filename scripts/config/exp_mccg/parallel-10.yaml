@@ -1,0 +1,14 @@
+solver_name: "parallel-10"
+solver_options:
+  # common
+  - "--checkpoints-duration"
+  - "1"
+  - "--no-scatter"
+  - "--no-refiner"
+  - "--random-insert-prob1"
+  - "0.001"
+  - "--random-insert-prob2"
+  - "0.0"
+  # tested parameters
+  - "--pibt-num"
+  - "10"

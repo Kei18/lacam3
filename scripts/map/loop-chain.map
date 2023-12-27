@@ -1,0 +1,7 @@
+type octile
+height 3
+width 4
+map
+....
+.T.T
+...T

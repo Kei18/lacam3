@@ -1,0 +1,13 @@
+solver_name: "lacam2"
+solver_options:
+  - "--checkpoints-duration"
+  - "1"
+  - "--no-multi-thread"
+  - "--no-scatter"
+  - "--no-refiner"
+  - "--pibt-num"
+  - "1"
+  - "--random-insert-prob1"
+  - "0.001"
+  - "--random-insert-prob2"
+  - "0.0"

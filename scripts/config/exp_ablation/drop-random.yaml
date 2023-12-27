@@ -1,0 +1,20 @@
+solver_name: "drop-random"
+time_limit_sec_force: 300
+solver_options:
+  # common
+  - "--checkpoints-duration"
+  - "1"
+  - "--pibt-num"
+  - "10"
+  - "--random-insert-prob1"
+  - "0.001"
+  - "--random-insert-prob2"
+  - "0.0"
+  - "--scatter-margin"
+  - "10"
+  - "--refiner-num"
+  - "4"
+  - "--recursive-rate"
+  - "0.2"
+  - "--recursive-time-out"
+  - "1"

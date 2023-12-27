@@ -1,0 +1,14 @@
+root: ../data/exp/aamas24/parallel
+num_min_agents: 1000
+num_max_agents: 1000
+num_interval_agents: 50
+time_limit_sec: 10
+time_limit_sec_force: 100
+seed_start: 1
+seed_end: 4
+scen: scen-random
+
+maps:
+  - random-32-32-20
+  - empty-48-48
+  - ht_chantry

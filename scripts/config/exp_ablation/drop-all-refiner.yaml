@@ -1,0 +1,15 @@
+solver_name: "drop-all-refiner"
+time_limit_sec_force: 300
+solver_options:
+  # common
+  - "--checkpoints-duration"
+  - "1"
+  - "--pibt-num"
+  - "10"
+  - "--random-insert-prob1"
+  - "0.001"
+  - "--random-insert-prob2"
+  - "0.01"
+  - "--scatter-margin"
+  - "10"
+  - "--no-refiner"

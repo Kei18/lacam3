@@ -1,0 +1,15 @@
+solver_name: "no-scatter"
+solver_options:
+  # common
+  - "--checkpoints-duration"
+  - "1"
+  - "--no-multi-thread"
+  - "--pibt-num"
+  - "1"
+  - "--no-refiner"
+  - "--random-insert-prob1"
+  - "0.001"
+  - "--random-insert-prob2"
+  - "0.0"
+  # tested parameters
+  - "--no-scatter"
