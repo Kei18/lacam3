@@ -108,7 +108,8 @@ int main(int argc, char *argv[])
   Planner::FLG_STAR = !program.get<bool>("no-star") && !flg_no_all;
   Planner::FLG_MULTI_THREAD =
       !program.get<bool>("no-multi-thread") && !flg_no_all;
-  Planner::PIBT_NUM = std::stoi(program.get<std::string>("pibt-num"));
+  Planner::PIBT_NUM =
+      flg_no_all ? 1 : std::stoi(program.get<std::string>("pibt-num"));
   Planner::FLG_REFINER = !program.get<bool>("no-refiner") && !flg_no_all;
   Planner::REFINER_NUM = std::stoi(program.get<std::string>("refiner-num"));
   Planner::FLG_SCATTER = !program.get<bool>("no-scatter") && !flg_no_all;
