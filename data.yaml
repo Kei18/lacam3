@@ -21,9 +21,9 @@ topLinks:
 
 headerImage: overview
 
-# subLinks:
-#   - name: |
-# url: https://github.com/Kei18/project-page-generator
+subLinks:
+  - name: "code (GitHub)"
+    url: https://github.com/Kei18/lacam3
 
 demo:
   - image: demo
