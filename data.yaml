@@ -57,7 +57,6 @@ abstract: |
   To overcome these limitations, this paper introduces several improvement techniques, partly drawing inspiration from other MAPF methods.
   We provide empirical evidence that the fusion of these techniques significantly improves the solution quality of LaCAM*, thus further pushing the boundaries of MAPF algorithms.
   </p>
-  <p><em>The code will be released soon.</em></p>
 
 news:
   - body: |
