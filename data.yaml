@@ -70,14 +70,14 @@ news:
 
 # video: https://player.vimeo.com/video/645887407
 
-# slides: https://speakerdeck.com/player/c720eb1fa04244c79127fe6ba0c03030
+slides: https://speakerdeck.com/player/67c94d14fa424f3ea02931340d5f43a2
 
 citation: |-
-  @article{okumura2023lacam3,
+  @inproceedings{okumura2024lacam3,
     title = {Engineering LaCAM$^\ast$: Towards Real-Time, Large-Scale, and Near-Optimal Multi-Agent Pathfinding},
-    journal = {arXiv preprint},
-    year = {2023},
-    author = {Keisuke Okumura}
+    booktitle={Proceedings of International Conference on Autonomous Agents and Multiagent Systems (AAMAS)},
+    year={2024},
+    author={Okumura, Keisuke}
   }
 
 contact: |-
