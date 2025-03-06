@@ -14,16 +14,11 @@ struct Instance {
   const uint N;   // number of agents
   bool delete_graph_after_used;
 
+  Instance(const std::vector<std::vector<int>> &map, 
+    const std::vector<std::pair<int, int>> &starts, 
+    const std::vector<std::pair<int, int>> &goals);
   Instance(Graph *_G, const Config &_starts, const Config &_goals, uint _N);
-  Instance(const std::string &map_filename,
-           const std::vector<int> &start_indexes,
-           const std::vector<int> &goal_indexes);
-  // for MAPF benchmark
-  Instance(const std::string &scen_filename, const std::string &map_filename,
-           const int _N = 1);
   // random instance generation
-  Instance(const std::string &map_filename, const int _N = 1,
-           const int seed = 0);
   ~Instance();
 
   // simple feasibility check of instance
