@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
+
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 file(GLOB SRCS "./src/*.cpp")
 project(lacam3)
 add_library(${PROJECT_NAME} STATIC ${SRCS})

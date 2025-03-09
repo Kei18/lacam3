@@ -37,9 +37,9 @@
 
 # End of https://www.toptal.com/developers/gitignore/api/c++
 **/.DS_Store
-# **/build/
 **/build*/
 Manifest.toml
 map
 scen
 **/local/
+**/__pycache__/
