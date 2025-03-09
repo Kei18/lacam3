@@ -18,15 +18,19 @@ My prior studies such as [[pibt2; AIJ-22]](https://kei18.github.io/pibt2/) and [
 
 ![](./assets/overview.png)
 
+## News
 
-### Demo
+- Mar. 2025. You can now call lacam3 from Python! Check [pybind](https://github.com/Kei18/lacam3/tree/pybind) branch.
+  Thanks to [@TD0013](https://github.com/TD0013) for creating the interface.
+
+
+## Demo
 
 [lacam2](https://kei18.github.io/lacam2) (left) vs. lacam3 (right, this repo) 🚀🪄
 
 ![](./assets/demo.gif)
 
 _random-32-32-20.map, 409 agents, 30sec timeout, on Mac Book Pro (M2 Max)_
-
 
 ## Building
 
