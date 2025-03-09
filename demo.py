@@ -2,6 +2,8 @@ import build.bindings.lacam as lacam
 import random
 import skimage
 import numpy as np
+import argparse
+import time
 
 
 def house_generator(env_size=(10, 40), obstacle_ratio=10, remove_edge_ratio=6):
@@ -91,7 +93,7 @@ def house_generator(env_size=(10, 40), obstacle_ratio=10, remove_edge_ratio=6):
 
 
 def getFreeCell(world):
-    
+
     listOfFree = np.swapaxes(np.where(world==0), 0,1)
     np.random.shuffle(listOfFree)
     return (listOfFree[0][0], listOfFree[0][1])
@@ -107,13 +109,51 @@ def populateMap(testMap, numAgents):
     for i in range(numAgents):
         goalPos.append(tuple(getFreeCell(tempMap)))
         tempMap[goalPos[-1]] = 3
-        
+
     return agentPos, goalPos
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--numAgents", type=int, default=20)
+    parser.add_argument("--timeLimitSec", type=float, default=1.0)
+    parser.add_argument("--viz", action=argparse.BooleanOptionalAction, default=True)
+    args = parser.parse_args()
+
+    random.seed(args.seed)
+    np.random.seed(args.seed)
     testMap = house_generator()
-    
-    STARTS, GOALS = populateMap(testMap, 20)
-    
-    print(lacam.solve(testMap.tolist(), STARTS, GOALS, 5))
-    
+    STARTS, GOALS = populateMap(testMap, args.numAgents)
+
+    print(f"mapSize={testMap.shape}, args={args}, start lacam3")
+    solution = lacam.solve(testMap.tolist(), STARTS, GOALS, args.timeLimitSec)
+    print("solved" if len(solution) > 0 else "failed")
+
+    # simple visualisation
+    if args.viz and len(solution) > 0:
+
+        def colored(r, g, b, text):
+            return f"\033[38;2;{r};{g};{b}m{text}\033[0m"
+
+        colors = np.random.randint(0, 255, (args.numAgents, 3))
+
+        def getConfigStr(Q):
+            s = list(
+                map(
+                    lambda k: list(map(lambda x: "." if x == 0 else "@", testMap[k])),
+                    range(testMap.shape[0]),
+                )
+            )
+            for i, (x, y) in enumerate(Q):
+                s[x][y] = colored(*colors[i], "x" if (x, y) != GOALS[i] else "o")
+            return "\n".join(["".join(r) for r in s])
+
+        solution = np.array(solution).transpose((1, 0, 2))
+        T = len(solution) - 1
+        for t, Q in enumerate(solution):
+            goalReaching = sum(list(map(lambda x: x.all(), Q == solution[-1])))
+            print(
+                f"t={t:03d}/{T:03d}, goalReaching={goalReaching:03d}/{args.numAgents:03d}"
+            )
+            print(getConfigStr(Q) + (f"\033[{len(testMap)+1}A" if t < T else ""))
+            time.sleep(0.2)

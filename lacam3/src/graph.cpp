@@ -19,7 +19,8 @@ static const std::regex r_height = std::regex(R"(height\s(\d+))");
 static const std::regex r_width = std::regex(R"(width\s(\d+))");
 static const std::regex r_map = std::regex(R"(map)");
 
-Graph::Graph(const std::vector<std::vector<int>> &map) : V(Vertices()), width(0), height(0)
+Graph::Graph(const std::vector<std::vector<int>> &map)
+    : V(Vertices()), width(0), height(0)
 {
   width = map[0].size();
   height = map.size();

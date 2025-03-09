@@ -14,9 +14,9 @@ struct Instance {
   const uint N;   // number of agents
   bool delete_graph_after_used;
 
-  Instance(const std::vector<std::vector<int>> &map, 
-    const std::vector<std::pair<int, int>> &starts, 
-    const std::vector<std::pair<int, int>> &goals);
+  Instance(const std::vector<std::vector<int>> &map,
+           const std::vector<std::pair<int, int>> &starts,
+           const std::vector<std::pair<int, int>> &goals);
   Instance(Graph *_G, const Config &_starts, const Config &_goals, uint _N);
   // random instance generation
   ~Instance();
