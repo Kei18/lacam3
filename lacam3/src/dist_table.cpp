@@ -31,9 +31,14 @@ void DistTable::setup(const Instance *ins)
     }
   };
 
+  const int num_threads =
+      std::max(1u, std::min((unsigned)ins->N,
+                            std::thread::hardware_concurrency()));
   auto pool = std::vector<std::future<void>>();
-  for (size_t i = 0; i < ins->N; ++i) {
-    pool.emplace_back(std::async(std::launch::async, bfs, i));
+  for (int t = 0; t < num_threads; ++t) {
+    pool.emplace_back(std::async(std::launch::async, [&, t]() {
+      for (int i = t; i < (int)ins->N; i += num_threads) bfs(i);
+    }));
   }
 }
 
