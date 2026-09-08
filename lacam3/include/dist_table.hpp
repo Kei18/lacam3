@@ -8,6 +8,7 @@
 #include "utils.hpp"
 
 struct DistTable {
+  static bool FLG_MULTI_THREAD;  // whether to use multi-threading
   const int K;  // number of vertices
   std::vector<std::vector<int>>
       table;  // distance table, index: agent-id & vertex-id
