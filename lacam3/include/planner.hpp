@@ -85,6 +85,9 @@ struct Planner {
   int search_iter;
   int time_initial_solution;
   int cost_initial_solution;
+  int last_goal_cost;
+  int last_goal_improvement_ms;
+  int synchronous_refiner_time_ms;
   std::vector<int> checkpoints;
 
   Planner(const Instance *_ins, int _verbose = 0,

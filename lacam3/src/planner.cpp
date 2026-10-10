@@ -22,6 +22,8 @@ int Planner::CHECKPOINTS_DURATION = 5000;
 constexpr int CHECKPOINTS_NIL = -1;
 
 constexpr auto TIME_ZERO = std::chrono::seconds(0);
+// Defer the synchronous refiner until the high-level search has plateaued.
+constexpr int ADAPTIVE_STALL_MS = 500;
 
 Planner::Planner(const Instance *_ins, int _verbose, const Deadline *_deadline,
                  int _seed, int _depth, DistTable *_D)
@@ -46,6 +48,9 @@ Planner::Planner(const Instance *_ins, int _verbose, const Deadline *_deadline,
       search_iter(0),
       time_initial_solution(-1),
       cost_initial_solution(-1),
+      last_goal_cost(-1),
+      last_goal_improvement_ms(-1),
+      synchronous_refiner_time_ms(-1),
       checkpoints()
 {
 }
@@ -74,6 +79,21 @@ Solution Planner::solve()
   while (!OPEN.empty() && !is_expired(deadline)) {
     search_iter += 1;
     update_checkpoints();
+
+    // In single-thread mode, spend one refiner pass only after the incumbent
+    // has stopped improving for a bounded interval.
+    if (H_goal != nullptr) {
+      const auto now = elapsed_ms(deadline);
+      if (last_goal_cost != H_goal->g) {
+        last_goal_cost = H_goal->g;
+        last_goal_improvement_ms = now;
+      }
+      if (!FLG_MULTI_THREAD && seed_refiner == 0 &&
+          last_goal_improvement_ms >= 0 &&
+          now - last_goal_improvement_ms >= ADAPTIVE_STALL_MS) {
+        set_refiner();
+      }
+    }
 
     // check pooled procedures
     refiner_pool.remove_if([&](auto &proc) {
@@ -107,9 +127,11 @@ Solution Planner::solve()
       time_initial_solution = elapsed_ms(deadline);
       cost_initial_solution = H->g;
       H_goal = H;
+      last_goal_cost = H_goal->g;
+      last_goal_improvement_ms = elapsed_ms(deadline);
       info(1, verbose, deadline, "found initial solution, cost: ", H_goal->g);
-      if (!FLG_STAR) break;  // finish search
-      set_refiner();         // refining start
+      if (!FLG_STAR) break;                 // finish search
+      if (FLG_MULTI_THREAD) set_refiner();  // asynchronous refining start
       continue;
     }
 
@@ -310,9 +332,15 @@ void Planner::set_pibt()
 void Planner::set_refiner()
 {
   if (!FLG_REFINER) return;
-  if (!FLG_MULTI_THREAD) return;
   auto plan = backtrack(H_goal);
   info(2, verbose, deadline, "invoke refiners");
+  if (!FLG_MULTI_THREAD) {
+    ++seed_refiner;
+    synchronous_refiner_time_ms = elapsed_ms(deadline);
+    auto refined = refine(ins, deadline, plan, D, seed_refiner, verbose - 4);
+    apply_new_solution(refined);
+    return;
+  }
   for (auto k = 0; k < REFINER_NUM; ++k) {
     ++seed_refiner;
     refiner_pool.emplace_back(
@@ -366,6 +394,10 @@ void Planner::logging()
       "\ncomp_time_initial_solution=" + std::to_string(time_initial_solution);
   MSG += "\ncost_initial_solution=" + std::to_string(cost_initial_solution);
   MSG += "\nsearch_iteration=" + std::to_string(search_iter);
+  MSG += "\nsynchronous_refiner_time_ms=" +
+         std::to_string(synchronous_refiner_time_ms);
+  MSG += "\nsynchronous_refiner_count=" +
+         std::to_string(FLG_MULTI_THREAD ? 0 : seed_refiner);
   MSG += "\nnum_high_level_node=" + std::to_string(HNode::COUNT);
   MSG += "\nnum_low_level_node=" + std::to_string(LNode::COUNT);
 
