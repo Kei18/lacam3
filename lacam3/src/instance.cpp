@@ -7,7 +7,8 @@ Instance::~Instance()
 
 Instance::Instance(Graph *_G, const Config &_starts, const Config &_goals,
                    uint _N)
-    : G(_G), starts(_starts), goals(_goals), N(_N)
+    : G(_G), starts(_starts), goals(_goals), N(_N),
+	  delete_graph_after_used(false)
 {
 }
 
